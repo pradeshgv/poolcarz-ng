@@ -1,0 +1,51 @@
+
+#logodiv{
+    padding: 10px;
+    background-color: #f1f3f4;
+}
+#logo{
+    color:#fe64ba;
+}
+    #lbox{
+        width: 25%;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid #337ab7;
+        margin-top: 10%;
+        border-radius: 3%;
+    }
+    #libox{
+        background-color: #337ab7;
+        color: white;
+        padding: 5px;
+        border-radius: 3%;
+    }
+table{
+    width: 100%;
+    text-align: center;
+}
+tr,td{
+    padding: 5px;
+}
+h3{
+    font-size: 30px;
+}
+h5{
+    font-size: 20px;
+}
+#lform{
+    padding: 5px;
+}
+#signup{
+    background-color: #337ab7;
+    height: 35px;
+    width: 70px;
+    border-radius: 25%;
+    border: 2px solid #337ab7;
+    margin: 20px;
+    margin-bottom: 5px;
+}
+input{
+    height: 25px;
+    border-radius: 1%;
+}

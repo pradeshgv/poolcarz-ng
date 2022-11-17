@@ -1,0 +1,55 @@
+{
+  "rides": [
+    {
+      "id": 1,
+      "offerid": "a1",
+      "name": "a",
+      "car": "Innova",
+      "seatsLeft": 1,
+      "pickUp": "Vanrose Junction",
+      "destination": "Office"
+    },
+    {
+      "id": 2,
+      "offerid": "a2",
+      "name": "b",
+      "car": "Indica",
+      "seatsLeft": 1,
+      "pickUp": "PTP",
+      "destination": "Office",
+      "createdAt": "2022-11-03T08:14:27.408Z",
+      "updatedAt": "2022-11-03T08:14:27.408Z"
+    },
+    {
+      "id": 3,
+      "offerid": "a3",
+      "name": "asd",
+      "car": "Indica",
+      "seatsLeft": 1,
+      "pickUp": "PTP",
+      "destination": "Office",
+      "createdAt": "2022-11-03T08:14:41.615Z",
+      "updatedAt": "2022-11-03T08:35:47.593Z"
+    },
+    {
+      "id": 4,
+      "offerid": "a4",
+      "name": "d",
+      "car": "Omni",
+      "seatsLeft": 4,
+      "pickUp": "Office",
+      "destination": "Central Mall",
+      "createdAt": "2022-11-03T08:14:56.653Z",
+      "updatedAt": "2022-11-03T08:14:56.653Z"
+    },
+    {
+      "id": 5,
+      "offerid": "a2",
+      "name": "b",
+      "car": "Indica",
+      "seatsLeft": 2,
+      "pickUp": "PTP",
+      "destination": "Office"
+    }
+  ]
+}

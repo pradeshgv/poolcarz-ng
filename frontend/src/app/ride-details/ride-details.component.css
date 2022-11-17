@@ -1,0 +1,39 @@
+#lbox{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #337ab7;
+    margin-top: 10%;
+    border-radius: 1%;
+}
+#libox{
+    background-color: #337ab7;
+    color: white;
+    padding: 5px;
+    border-radius: 1%;
+    height: 40px;
+}
+#lform{
+    margin: 30px;
+}
+table{
+    width:95%;
+    border:1px solid #b3b3b3;
+    margin: auto;
+}
+th,td{
+    text-align: center;
+    border: 1px solid #b3b3b3;
+    height: 30px;
+}
+button{
+    background-color: #337ab7;
+    height: 35px;
+    width: 120px;
+    border-radius: 5%;
+    border: 2px solid #337ab7;
+    margin: 20px;
+    margin-bottom: 5px;
+    color: white;
+    margin: auto;
+}

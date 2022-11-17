@@ -1,0 +1,41 @@
+<div id="logodiv">
+    <h1 id="logo">PoolCarz</h1>
+</div>
+<div id="lbox">
+    <div id="libox">
+        <h3>Signup</h3>
+    </div>
+    <div ID="lform">
+        <form [formGroup]="signupForm">
+            <table>
+                <tr>
+                    <td><h5>User Name</h5></td>
+                    <td><input type=text class="form-control" id="uname" formControlName="username" [(ngModel)]="uname"  name="uname" /></td>
+                </tr>
+                <tr *ngIf="signupForm.controls['username'].errors?.['required']">
+                    <td></td>
+                    <td style="padding-top:0px;"><p style="color: red;text-align: left;">User Name is Required</p></td>
+                </tr>
+                <tr>
+                    <td><h5>Password</h5></td>
+                    <td><input type=text  class="form-control" id="pass" formControlName="password" [(ngModel)]="pass"  name="pass"/></td>
+                </tr>
+                <tr *ngIf="signupForm.controls['password'].errors?.['required']">
+                    <td></td>
+                    <td style="padding-top:0px;"><p style="color: red;text-align: left;">Password is Required</p></td>
+                </tr>
+                <tr *ngIf="submitted">
+                <td><p style="color: red;text-align: right;"><br>{{message}}</p></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Signup" id="signup" style="color: white;" (click)="onSubmit()"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<br>
+<div id="loginlink">
+    <p style="text-align: center;color: blue;" (click)="onlogin()">Already a PoolCarz user ? Login</p>
+</div>
+

@@ -1,0 +1,40 @@
+<div class="header">
+    <div class="">
+        <h2 id="logo">PoolCarz</h2>
+    </div>
+    <div>
+        <h2 id="logo" (click)="onmyrides();" >My Rides</h2>
+    </div>
+    <div>
+        <h2 id="logo" (click)="onlogout();">Logout</h2>
+    </div>
+</div>
+<div id="lbox">
+    <div id="libox">
+        <h3>Car Ride Registration Form</h3>
+    </div>
+    <div id="lform">
+        <form [formGroup]="offerRideForm">
+            <p>Name</p>
+            <input type="text" class="form-control" formControlName="name" name="name" />
+            <p>Start Location</p>
+            <input type="text" class="form-control" formControlName="src" name="src" />
+            <p>Destination</p>
+            <input type="text" class="form-control" formControlName="dstn" name="dstn"/>
+            <p>Car</p>
+            <input type="text" class="form-control" formControlName="car" name="car"/>
+            <p>Seats Available</p>
+            <input type="number" class="form-control" formControlName="seatsleft" name="seatsleft" style="margin-bottom: 2px;"/>
+            <div *ngIf="offerRideForm.controls['seatsleft'].errors?.['seatsInvalid']">
+                <small style="color: red;margin-left: 0;font-weight: normal;">{{offerRideForm.controls['seatsleft'].errors?.['seatsInvalid'].message}}</small>
+            </div>
+            <table>
+                <tr>
+                    <td style="padding-left:0px; padding-right: 10px;padding-top: 10px;"><input type="submit" value="submit" class="button mt-2" (click)="onSubmit()"/></td>
+                    <td style="padding-left: 10px;padding-top: 10px;"><input type="button" value="Go Back" class="button mt-2" (click)="goback()"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div *ngIf="submitted" style="color: green;text-align: center;font-size: 23px;">Added Successfully!<br></div>
+</div>

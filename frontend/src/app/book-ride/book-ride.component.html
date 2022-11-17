@@ -1,0 +1,62 @@
+<div class="header">
+    <div class="">
+        <h2 id="logo">PoolCarz</h2>
+    </div>
+    <div>
+        <h2 id="logo" (click)="onmyrides();" >My Rides</h2>
+    </div>
+    <div>
+        <h2 id="logo" (click)="onlogout();" >Logout</h2>
+    </div>
+</div>
+<div id="lbox">
+    <div id="libox">
+        <h3>Book a Ride</h3>
+    </div>
+    <div ID="lform">
+        <p>Pool Carz is an online application which enable users to share rides with others. You can either book a ride
+            or offer a ride. Did we mention that this app is advertisement free ? To add on top of that its free of cost I So what
+            are vou waiting for ? Check out the rides avalable and start PCingll
+        </p>
+        <br>
+        <div *ngIf="flag">
+            <button type="button" class="d-block mx" (click)="onClick()">Show All Rides</button>
+        </div>    
+            
+        
+        <div *ngIf="!flag" class="container">
+
+            <div class="row" *ngIf="!bo">
+            <div class="col-3 d-flex justify-content-center"><button type="button" name="sar" [ngClass]="pipese==='sar'?'changeColor':''" (click)="onClick();setpipese('sar')">Show All Rides</button></div>
+            <div class="col-3 d-flex justify-content-center"><button type="button" name="to" [ngClass]="pipese==='to'?'changeColor':''" (click)="setpipese('to')">To Office</button></div>
+            <div class="col-3 d-flex justify-content-center"><button type="button" name="fo" [ngClass]="pipese==='fo'?'changeColor':''" (click)="setpipese('fo')">From Office</button></div>
+            <div class="col-3 d-flex justify-content-center"><button type="button" name="ot" [ngClass]="pipese==='ot'?'changeColor':''" (click)="setpipese('ot')">Others</button></div>
+            </div>
+            <div class="row" *ngIf="bo">
+                <button type="button" class="d-block mx" style="background-color:#20b2aa;width:150px;"(click)="onClick()">Show All Rides</button>
+            </div>
+        
+        <p style="text-align:center;color:#85a5c2" *ngIf="!bo"><br><br> Please select a ride!</p>
+        <div class="table-responsive" *ngIf="!bo">
+            <table>
+                <tr>
+                    <th>Start Point</th>
+                    <th>End Point</th>
+                    <th>Seats Available</th>
+                </tr>
+                <tr *ngFor="let ride of rides | rideFilter:pipese" appMouseHover (click)="onrideselect(ride)">
+                    <td>{{ride.pickUp}}</td>
+                    <td>{{ride.destination}}</td>
+                    <td>{{ride.seatsLeft}}</td>
+                </tr>
+            </table>
+        </div>
+        <app-ride-details [rideDetails]="selectid" (onbook)="boo($event)"></app-ride-details>
+    </div>
+        <br><br>
+        <button type="button" class="d-block mx" (click)="gotoOfferRide()">Offer A Ride!</button>
+        
+    
+    
+    </div>
+</div>

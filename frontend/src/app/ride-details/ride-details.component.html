@@ -1,0 +1,40 @@
+<div id="lbox" *ngIf="ride">
+    <div id="libox">
+        <h3>Ride Details</h3> 
+    </div>
+    <div ID="lform">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Car</th>
+                <th>Seats Left</th>
+                <th>Pick-up Point</th>
+                <th>Destination</th>
+            </tr>
+            <tr>
+                <td>{{ride.id}}</td>
+                <td>{{ride.name}}</td>
+                <td>{{ride.car}}</td>
+                <td>{{ride.seatsLeft}}</td>
+                <td>{{ride.pickUp}}</td>
+                <td>{{ride.destination}}</td>
+            </tr>
+        </table>
+        <br><br>
+       <div *ngIf="this.loginuser.uname==this.id2.name" style="color:#d9534f;font-size: 15px;text-align: center;">
+            Cannot book your own ride
+        </div>
+        <div *ngIf="this.id2.seatsLeft==0" style="color:#d9534f;font-size: 15px;text-align: center;">
+            Seats are Empty
+        </div>
+        <br>
+        <div *ngIf="!booked && this.loginuser.uname!=this.id2.name && this.id2.seatsLeft!=0">
+        <button class="d-block mx" (click)="onbooking()">Book!</button>
+        </div>
+        <div *ngIf="booked">
+            <p style="text-align: center;color:#337ab7">Booking done. Your booking id: {{this.bid}}</p>
+            <button class="d-block mx" style="background-color:#d9534f;width: 150px;border: 1px solid #d9534f;" (click)="onCancel()">Cancel Booked Ride</button>
+            </div>
+    </div>
+</div>

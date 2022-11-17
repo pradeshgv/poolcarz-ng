@@ -1,0 +1,47 @@
+<div class="header">
+    <div class="">
+        <h2 id="logo" (click)="onclick()">PoolCarz</h2>
+    </div>
+    <div>
+        <h2 id="logo" (click)="onlogout();" >Logout</h2>
+    </div>
+</div>
+<div id="lbox">
+    <div id="libox">
+        <h3>My Rides</h3>
+    </div>
+    <br><br><br>
+    <div *ngIf="!show">
+        <button class="d-block mx" style="background-color:#337ab7 ;border:2px solid #337ab7" (click)="onclick()">Show My Rides</button>
+    </div>
+    <div *ngIf="show">
+        <button class="d-block mx"style="background-color:#337ab7 ;border:2px solid #337ab7"  (click)="onclick()">Hide My Rides</button>
+    </div>
+    <br><br>
+    <div class="table-responsive" *ngIf="show && fbook.length!=0" >
+        <table>
+            <tr>
+                <th>Booking ID</th>
+                <th>Ride ID</th>
+                <th>Name</th>
+                <th>Car</th>
+                <th>Pick-up Point</th>
+                <th>Destination</th>
+                <th>Cancel</th>
+            </tr>
+            <tr *ngFor="let book of fbook " appMouseHover (click)="onrideselect(book)">
+                <td>{{book.id}}</td>
+                <td>{{book.rideid}}</td>
+                <td>{{book.name}}</td>
+                <td>{{book.car}}</td>
+                <td>{{book.pickUp}}</td>
+                <td>{{book.destination}}</td>
+                <td><button (click)="oncancel()">Cancel</button></td>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="show &&fbook.length==0" style="text-align: center;">No Bookings found</div>
+    <br><br><br>
+    <button class="d-block mx" style="background-color:#337ab7 ;border:2px solid #337ab7" (click)="onhome()">To Home</button>
+    <br><br><br>
+</div>

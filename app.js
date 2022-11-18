@@ -2,14 +2,37 @@ require("dotenv").config()
 const express = require('express');
 const bodyparser = require('body-parser');
 const route = require('./routes/routing');
-const cors=require('cors');
-const app = express();
 const mongoose = require("mongoose")
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
-app.use(cors());
-app.use('/api',(rq, rs,n)=>{console.log("hello");n()},  route);
 const port = 5000;
+
+
+const cors = (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin,X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  );
+  next();
+};
+
+const app = express();
+
+app.use(express.json());
+
+app.use(cors);
+
+app.use((req, res, next) => {
+  next();
+});
+
+app.use("/api", route);
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/dist/pool-carz"));
   // Express serve up index.html file if it doesn't recognize route
@@ -20,6 +43,9 @@ if (process.env.NODE_ENV === "production") {
     );
   });
 }
+
+
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {

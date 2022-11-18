@@ -31,15 +31,13 @@ app.use((req, res, next) => {
 app.use("/api", route);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/dist/pool-carz"));
-  // Express serve up index.html file if it doesn't recognize route
+  app.use(express.static("./frontend/dist/pool-carz"));
   const path = require("path");
   app.get("*", (req, res) => {
     res.sendFile(
       path.resolve(__dirname, "frontend", "dist", "pool-carz", "index.html")
     );
   });
-  console.log(__dirname);
 }
 
 

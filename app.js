@@ -1,9 +1,8 @@
-require("dotenv").config()
-const express = require('express');
-const route = require('./routes/routing');
-const mongoose = require("mongoose")
+require("dotenv").config();
+const express = require("express");
+const route = require("./routes/routing");
+const mongoose = require("mongoose");
 const port = 5000;
-
 
 const cors = (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -31,7 +30,7 @@ app.use((req, res, next) => {
 app.use("/api", route);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("./frontend/dist/pool-carz"));
+  app.use(express.static("frontend/dist/pool-carz"));
   const path = require("path");
   app.get("*", (req, res) => {
     res.sendFile(
@@ -40,15 +39,11 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+mongoose.connect(process.env.MONGO_URI).then(() => {
+  app.listen(port, () => {
+    console.log(`App running on port ${port}...`);
+  });
+  console.log("DB connection successful!");
+});
 
-
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`App running on port ${port}...`);
-    });
-    console.log('DB connection successful!');});
-
-    
 module.exports = app;

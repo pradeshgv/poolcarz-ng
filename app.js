@@ -9,7 +9,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(cors());
 app.use('/api',(rq, rs,n)=>{console.log("hello");n()},  route);
-const port = process.env.PORT || 5000;
+const port = 5000;
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/dist/pool-carz"));
   // Express serve up index.html file if it doesn't recognize route

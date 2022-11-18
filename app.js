@@ -1,12 +1,10 @@
 require("dotenv").config()
 const express = require('express');
 const bodyparser = require('body-parser');
-const myReqLogger = require('./Utilities/requestLogger');
 const route = require('./routes/routing');
 const cors=require('cors');
 const app = express();
 const mongoose = require("mongoose")
-app.use(myReqLogger);
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(cors());

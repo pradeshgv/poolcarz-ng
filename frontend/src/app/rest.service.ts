@@ -7,11 +7,11 @@ import { OfferRideComponent } from './offer-ride/offer-ride.component';
   providedIn: 'root'
 })
 export class RestService {
-  backendUrl = "http://localhost:5000";
+  backendUrl = "http://localhost:5000/api";
 
   constructor(private http: HttpClient) { 
     if(!isDevMode())
-      this.backendUrl = ""
+      this.backendUrl = "/api"
   }
   getRides(): Observable<any[]> {
     return this.http.get<any[]>(this.backendUrl + '/rides');

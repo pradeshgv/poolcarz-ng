@@ -1,10 +1,7 @@
 require("dotenv").config()
 const express = require('express');
-const bodyparser = require('body-parser');
 const route = require('./routes/routing');
 const mongoose = require("mongoose")
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({extended:true}));
 const port = 5000;
 
 

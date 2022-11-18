@@ -1,5 +1,4 @@
 const ridesModel = require('../Model/ridesSchema');
-const validators = require('../Utilities/validator');
 exports.getNotes = async (req, res) => {
   try {
     const notes = await ridesModel.find({}, { _id: 0, __v: 0 });

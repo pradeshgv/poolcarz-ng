@@ -39,6 +39,7 @@ if (process.env.NODE_ENV === "production") {
       path.resolve(__dirname, "frontend", "dist", "pool-carz", "index.html")
     );
   });
+  console.log(__dirname);
 }
 
 
